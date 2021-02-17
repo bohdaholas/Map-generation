@@ -27,4 +27,13 @@ def get_movie_data_from_file(file_path: str, year: str) -> dict:
     return movies_data
 
 
+def sort_by_distance(unsorted_movies_data: dict) -> dict:
+    """
+    Sort movie filming locations according to user's given location
+    """
+    sorted_movies_data = dict(sorted(unsorted_movies_data.items(),
+                                     key=lambda movie_data: haversine(user_location, movie_data[1])))
+    return sorted_movies_data
+
+
 
